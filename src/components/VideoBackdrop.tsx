@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { usePrefersReducedMotion } from "@/lib/useScrollProgress";
 
 /** Looping muted background video that only plays while on screen. Shows the poster for reduced motion. */
-export function VideoBackdrop({ opacity = 0.4 }: { opacity?: number }) {
+export function VideoBackdrop({ opacity = 0.4, name = "data-ring" }: { opacity?: number; name?: string }) {
   const ref = useRef<HTMLVideoElement>(null);
   const reduced = usePrefersReducedMotion();
 
@@ -26,7 +26,7 @@ export function VideoBackdrop({ opacity = 0.4 }: { opacity?: number }) {
     <div aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden bg-black">
       {reduced ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src="/video/data-ring-poster.jpg" alt="" className="h-full w-full object-cover" style={{ opacity }} />
+        <img src={`/video/${name}-poster.jpg`} alt="" className="h-full w-full object-cover" style={{ opacity }} />
       ) : (
         <video
           ref={ref}
@@ -36,10 +36,10 @@ export function VideoBackdrop({ opacity = 0.4 }: { opacity?: number }) {
           loop
           playsInline
           preload="metadata"
-          poster="/video/data-ring-poster.jpg"
+          poster={`/video/${name}-poster.jpg`}
         >
-          <source src="/video/data-ring.webm" type="video/webm" />
-          <source src="/video/data-ring.mp4" type="video/mp4" />
+          <source src={`/video/${name}.webm`} type="video/webm" />
+          <source src={`/video/${name}.mp4`} type="video/mp4" />
         </video>
       )}
       {/* Fade the edges into the black page */}

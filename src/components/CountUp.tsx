@@ -11,8 +11,8 @@ function parse(v: string) {
   return { prefix: m[1], target: parseFloat(m[2].replace(/,/g, "")) * mult, suffix: m[4] };
 }
 
-/** Ticker that runs from 0 up to `value` the first time it scrolls into view, and lands on the full figure (3M+ → 3,000,000+). */
-export function CountUp({ value, duration = 1800, className }: { value: string; duration?: number; className?: string }) {
+/** Ticker that runs from 0 up to `value` the first time it scrolls into view, and lands exactly on `value`. */
+export function CountUp({ value, duration = 1100, className }: { value: string; duration?: number; className?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   const reduced = usePrefersReducedMotion();
   const parsed = parse(value);
@@ -32,13 +32,16 @@ export function CountUp({ value, duration = 1800, className }: { value: string; 
           const t = Math.min(1, (now - start) / duration);
           const eased = 1 - Math.pow(1 - t, 4);
           if (t < 1) {
-            setText(`${parsed.prefix}${Math.round(parsed.target * eased).toLocaleString("en-US")}${parsed.suffix}`);
+            const n = parsed.target * eased;
+            // Millions tick in tenths (0.1M → 3M) so the box never outgrows its column
+            const shown = parsed.target >= 1e6 ? `${(n / 1e6).toFixed(1)}M` : Math.round(n).toLocaleString("en-US");
+            setText(`${parsed.prefix}${shown}${parsed.suffix}`);
             raf = requestAnimationFrame(tick);
-          } else setText(`${parsed.prefix}${parsed.target.toLocaleString("en-US")}${parsed.suffix}`);
+          } else setText(value);
         };
         raf = requestAnimationFrame(tick);
       },
-      { threshold: 0.5 },
+      { threshold: 0.35 },
     );
     io.observe(el);
     return () => {

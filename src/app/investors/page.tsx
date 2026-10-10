@@ -76,7 +76,7 @@ export default function InvestorsPage() {
           <ul className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {inv.market.stats.map((s) => (
               <li key={s.value} className="glass-strong rounded-[2rem] p-8">
-                <p className="font-display text-xs uppercase tracking-[0.2em] text-haze">{s.tag}</p>
+                <p className="inline-flex rounded-full bg-white/10 px-3 py-1 font-display text-xs font-semibold uppercase tracking-[0.18em] text-paper ring-1 ring-white/15">{s.tag}</p>
                 <p className="mt-6 font-display text-5xl font-semibold tracking-tight sm:text-6xl">
                   <span className="text-signal-gradient">{s.value}</span>
                 </p>
@@ -84,7 +84,7 @@ export default function InvestorsPage() {
               </li>
             ))}
           </ul>
-          <p className="mt-6 text-sm text-haze">{inv.market.note}</p>
+          <p className="mt-6 text-sm text-mist">{inv.market.note}</p>
         </div>
       </section>
 
@@ -97,15 +97,15 @@ export default function InvestorsPage() {
       <section aria-labelledby="scale" className="py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <H2 id="scale" text={inv.scale.title} />
-          <ul className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-12 lg:gap-5">
+          <ul className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {inv.scale.stats.map((s, i) => (
               <li
                 key={s.label}
-                className={`glass-strong group relative flex min-h-[15rem] flex-col justify-between overflow-hidden rounded-[2rem] p-8 sm:p-10 ${["lg:col-span-7", "lg:col-span-5", "lg:col-span-5", "lg:col-span-7"][i]}`}
+                className="glass-strong group relative flex min-h-[15rem] flex-col justify-between overflow-hidden rounded-[2rem] p-8"
               >
                 <div aria-hidden="true" className="absolute inset-0 opacity-80 transition-opacity duration-500 group-hover:opacity-100" style={{ background: SCALE_GLOWS[i] }} />
                 <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-transparent via-white/[0.07] to-transparent animate-[sheen_7s_ease-in-out_infinite]" style={{ animationDelay: `${i * 1.2}s` }} />
-                <CountUp value={s.value} className="relative font-display text-6xl font-semibold tracking-tight sm:text-7xl" />
+                <CountUp value={s.value} className="relative font-display text-6xl font-semibold tracking-tight lg:text-[3.6rem] xl:text-6xl" />
                 <p className="relative mt-8 max-w-xs text-lg text-mist">{s.label}</p>
               </li>
             ))}
@@ -151,7 +151,8 @@ export default function InvestorsPage() {
       </section>
 
       {/* Roadmap */}
-      <section aria-labelledby="roadmap" className="py-20 sm:py-28">
+      <section aria-labelledby="roadmap" className="relative isolate overflow-hidden py-28 sm:py-40">
+        <VideoBackdrop name="city-grid" opacity={0.7} />
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <H2 id="roadmap" text={inv.roadmap.title} />
           <ol className="mt-14 grid gap-5 md:grid-cols-3">
