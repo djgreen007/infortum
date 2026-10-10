@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ContactForm } from "@/components/ContactForm";
-import { about, closing, contact } from "@/lib/content";
+import { GText } from "@/components/GText";
+import { about, closing, companies, contact } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "About us",
@@ -10,18 +11,24 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
+  const eddy = about.leadership.people[0];
   return (
     <>
-      <section className="mx-auto max-w-7xl px-5 pb-20 pt-40 sm:px-8 sm:pt-48">
-        <p className="font-display text-sm text-mist">About Infortum</p>
-        <h1 className="mt-6 max-w-5xl text-balance font-display text-[2.4rem] font-semibold leading-[1.04] tracking-[-0.03em] sm:text-6xl lg:text-7xl">
-          {about.title}
-        </h1>
+      {/* Hero */}
+      <section className="relative overflow-hidden pb-24 pt-40 sm:pt-52">
+        <div aria-hidden="true" className="glow-violet pointer-events-none absolute -right-40 -top-40 -z-10 h-[48rem] w-[48rem] opacity-60" />
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <p className="font-display text-sm text-mist">About Infortum</p>
+          <h1 className="mt-6 max-w-5xl text-balance font-display text-[2.6rem] font-semibold leading-[1.02] tracking-[-0.03em] sm:text-6xl lg:text-[5.25rem]">
+            <GText text={about.title} />
+          </h1>
+        </div>
       </section>
 
-      <section aria-labelledby="who" className="border-t border-line">
-        <div className="mx-auto grid max-w-7xl gap-14 px-5 py-24 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
-          <div className="relative aspect-[3/4] w-full max-w-md overflow-hidden rounded-3xl">
+      {/* Who we are */}
+      <section aria-labelledby="who" className="py-20 sm:py-28">
+        <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24">
+          <div className="relative aspect-[4/5] w-full max-w-md overflow-hidden rounded-[2rem]">
             <Image
               src="/images/about-phone.jpg"
               alt="A person holding a phone with a connected cloud data network overlay"
@@ -31,67 +38,140 @@ export default function AboutPage() {
             />
           </div>
           <div>
-            <h2 id="who" className="text-balance font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-              {about.whoTitle}
+            <h2 id="who" className="text-balance font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl">
+              <GText text={about.whoTitle} />
             </h2>
             <div className="mt-8 max-w-2xl space-y-5 text-pretty text-lg leading-relaxed text-mist">
               {about.who.map((p) => (
                 <p key={p.slice(0, 24)}>{p}</p>
               ))}
             </div>
-            <Link
-              href="/contact"
-              className="mt-10 inline-block rounded-full bg-paper px-7 py-3.5 font-medium text-ink transition-colors hover:bg-signal"
-            >
-              Contact us
-            </Link>
           </div>
         </div>
       </section>
 
-      <section className="border-t border-line bg-[radial-gradient(ellipse_at_80%_0%,rgba(139,0,255,0.12),transparent_60%)]">
-        <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
-          <p className="max-w-4xl text-balance font-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
-            {closing.title}
+      {/* Leadership */}
+      <section aria-labelledby="leadership" className="relative overflow-hidden py-24 sm:py-36">
+        <div aria-hidden="true" className="glow-cyan pointer-events-none absolute left-1/4 top-1/2 -z-10 h-[44rem] w-[44rem] -translate-y-1/2 opacity-50" />
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <h2 id="leadership" className="font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+            {about.leadership.title}
+          </h2>
+          <div className="mt-14 grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+            <div className="relative mx-auto aspect-square w-full max-w-md overflow-hidden rounded-[2rem] ring-1 ring-white/10 lg:mx-0">
+              <Image src={eddy.photo} alt={`${eddy.name}, ${eddy.role}`} fill sizes="(min-width:1024px) 28rem, 90vw" className="object-cover" />
+            </div>
+            <div>
+              <p className="font-display text-4xl font-semibold tracking-tight sm:text-5xl">{eddy.name}</p>
+              <p className="mt-3 font-display text-xl">
+                <span className="text-signal-gradient">{eddy.role}</span>
+                <span className="text-mist">, Infortum Inc.</span>
+              </p>
+              <div className="mt-8 max-w-xl space-y-4 text-pretty text-lg leading-relaxed text-mist">
+                {eddy.bio.map((b) => (
+                  <p key={b.slice(0, 20)}>{b}</p>
+                ))}
+              </div>
+              <blockquote className="mt-10 max-w-xl">
+                <p className="text-balance font-display text-2xl leading-snug text-paper">“{eddy.quote}”</p>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Vision & mission */}
+      <section aria-label="Vision and mission" className="py-24 sm:py-36">
+        <div className="mx-auto max-w-6xl space-y-24 px-5 sm:space-y-32 sm:px-8">
+          <div>
+            <p className="font-display text-sm text-mist">{about.vision.label}</p>
+            <p className="mt-6 text-balance font-display text-3xl font-semibold leading-[1.15] tracking-tight sm:text-5xl lg:text-6xl">
+              <GText text={about.vision.text} />
+            </p>
+          </div>
+          <div className="lg:pl-[16%]">
+            <p className="font-display text-sm text-mist">{about.mission.label}</p>
+            <p className="mt-6 text-pretty font-display text-2xl leading-[1.35] tracking-tight text-paper/90 sm:text-3xl lg:text-4xl">
+              {about.mission.text}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section aria-labelledby="values" className="py-20 sm:py-28">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <h2 id="values" className="max-w-3xl text-balance font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl">
+            <GText text={about.valueTitle} />
+          </h2>
+          <p className="mt-6 max-w-xl text-pretty text-lg text-mist">{about.valueBody}</p>
+          <ul className="mt-14 grid gap-5 md:grid-cols-3">
+            {about.values.map((v) => (
+              <li key={v.name} className="glass rounded-[1.75rem] p-8 sm:p-10">
+                <p className="font-display text-3xl font-semibold">
+                  <span className="text-signal-gradient">{v.name}</span>
+                </p>
+                <p className="mt-4 text-pretty leading-relaxed text-mist">{v.body}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Portfolio */}
+      <section aria-labelledby="portfolio" className="py-20 sm:py-28">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <h2 id="portfolio" className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+            Our portfolio
+          </h2>
+          <ul className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
+            {companies.items
+              .filter((c, i, all) => all.findIndex((x) => x.logo === c.logo) === i)
+              .map((c) => (
+                <li key={c.id}>
+                  <Link
+                    href={`/#${c.id}`}
+                    className="glass flex aspect-[4/3] flex-col items-center justify-center gap-3 rounded-[1.5rem] p-6 transition hover:bg-white/10"
+                  >
+                    <span className={`relative h-14 w-24 ${c.logoBg === "light" ? "overflow-hidden rounded-xl bg-paper" : ""}`}>
+                      <Image src={c.logo} alt="" fill sizes="96px" className="object-contain" />
+                    </span>
+                    <span className="text-center font-display text-sm text-mist">{c.brand}</span>
+                  </Link>
+                </li>
+              ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Banner */}
+      <section className="relative overflow-hidden py-28 sm:py-36">
+        <div aria-hidden="true" className="glow-violet pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[40rem] w-[64rem] -translate-x-1/2 -translate-y-1/2 opacity-60" />
+        <div className="mx-auto max-w-5xl px-5 text-center sm:px-8">
+          <p className="text-balance font-display text-3xl font-semibold leading-tight tracking-tight sm:text-5xl">
+            <GText text={closing.title} />
           </p>
           <Link
             href="/contact"
-            className="mt-10 inline-block rounded-full border border-line px-7 py-3.5 font-medium transition-colors hover:border-paper"
+            className="mt-12 inline-block rounded-full bg-paper px-8 py-4 font-medium text-ink transition-colors hover:bg-signal"
           >
             Speak to our team
           </Link>
         </div>
       </section>
 
-      <section aria-labelledby="mission" className="border-t border-line">
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-24 sm:px-8 lg:grid-cols-2 lg:gap-20">
+      {/* Form */}
+      <section aria-labelledby="know-more" className="pb-28 pt-12">
+        <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           <div>
-            <h2 className="text-balance font-display text-3xl font-semibold tracking-tight sm:text-4xl">{about.valueTitle}</h2>
-            <p className="mt-5 max-w-md text-pretty text-lg text-mist">{about.valueBody}</p>
-          </div>
-          <div>
-            <h3 id="mission" className="font-display text-xl font-semibold">
-              {about.missionTitle}
-            </h3>
-            <div aria-hidden="true" className="mt-4 h-px w-24 bg-signal-gradient" />
-            <div className="mt-6 space-y-5 text-pretty text-lg leading-relaxed text-mist">
-              {about.mission.map((p) => (
-                <p key={p.slice(0, 24)}>{p}</p>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section aria-labelledby="know-more" className="border-t border-line">
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-24 sm:px-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-          <div>
-            <h2 id="know-more" className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+            <h2 id="know-more" className="font-display text-4xl font-semibold tracking-tight sm:text-5xl">
               {contact.aboutFormTitle}
             </h2>
-            <p className="mt-5 max-w-sm text-pretty text-lg text-mist">{contact.aboutFormBody}</p>
+            <p className="mt-6 max-w-sm text-pretty text-lg text-mist">{contact.aboutFormBody}</p>
           </div>
-          <ContactForm source="about" />
+          <div className="glass rounded-[2rem] p-6 sm:p-10">
+            <ContactForm source="about" />
+          </div>
         </div>
       </section>
     </>

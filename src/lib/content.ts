@@ -1,4 +1,5 @@
-// All site copy lives here. Source: recovered infortum.io (Apr 2026), with DJ's decisions applied (Oct 2026).
+// All site copy lives here. Words wrapped in {braces} render in the cyan→violet gradient.
+// Source: recovered infortum.io (Apr 2026), with DJ's decisions applied (Oct 2026).
 
 export const site = {
   name: "Infortum",
@@ -18,33 +19,37 @@ export const nav = [
 ];
 
 export const hero = {
-  title: "Transform offline behavior into actionable insights.",
+  title: "Transform offline {behavior} into actionable {insights.}",
   body: "Connect offline-in-life data to predict consumer intent, drive measurable growth, and power business outcomes.",
   pillars: ["Engage", "Empower", "Entrust"],
   cta: { label: "Partner with us", href: "/contact" },
 };
 
 export const ecosystem = {
-  title: "One single integrated ecosystem. Infinite advantage.",
+  title: "One single integrated ecosystem. {Infinite advantage.}",
   body: "The Infortum ecosystem connects and accelerates every layer of consumer behavior, using predictive data layers to deliver unique insights and empower smarter business decisions.",
   items: [
     {
       name: "Earnva Smart Wallet",
+      short: "Smart Wallet",
       image: "/images/earnva-card.webp",
       body: "Replace fragmented physical wallets with an immutable hardware gateway. Consolidating 1,000 cards into one ledger-secured device eliminates daily friction while ensuring unbreachable control over your unified financial identity.",
     },
     {
       name: "Earnva Savings & Rewards (ESRN)",
+      short: "Savings & Rewards",
       image: "/images/bg-money.webp",
       body: "Converts offline intent into instant, closed-loop purchasing power across millions of premium global destinations, including 2M+ hotels, 300,000+ US restaurants, and more.",
     },
     {
       name: "Global Banking & Custody",
-      image: null,
+      short: "Banking & Custody",
+      image: "/images/aet-trust-logo.png",
       body: "Unifies global banking and digital asset custody into one seamless interface for absolute, frictionless control over your wealth.",
     },
     {
       name: "247FirstCare & EarnvaRx",
+      short: "Health & Rx",
       image: "/images/bg-health.webp",
       body: "Integrates 24/7 virtual primary care and deep pharmaceutical utility natively into your financial ecosystem to proactively protect your health — with savings on 93% of US prescriptions and over 26,000 commercially discounted medications at 65,000+ US pharmacies.",
     },
@@ -52,7 +57,7 @@ export const ecosystem = {
 };
 
 export const dataLayers = {
-  title: "Connect offline-in-life data with AI insights to grow your business.",
+  title: "Connect offline-in-life data with {AI insights} to grow your business.",
   body: "Six predictive data layers, stacked into one view of the consumer.",
   layers: [
     { name: "Total Share of Wallet", short: "TSW", body: "Capturing 360° of consumer spending across all legacy and digital payment rails." },
@@ -65,11 +70,12 @@ export const dataLayers = {
 };
 
 export const companies = {
-  title: "Designed to solve. Built to scale.",
+  title: "Designed to solve. {Built to scale.}",
   body: "Every Infortum brand is architected to eliminate systemic friction, reclaim lost value, and provide the essential platform required to navigate a fragmented global economy.",
   items: [
     {
       id: "earnva",
+      art: "/images/earnva-card.webp",
       brand: "Earnva",
       logo: "/images/earnva-logo.png",
       logoBg: "dark",
@@ -83,6 +89,7 @@ export const companies = {
     },
     {
       id: "earnva-savings-rewards",
+      art: "/images/bg-money.webp",
       brand: "Earnva Savings & Rewards",
       logo: "/images/earnva-logo.png",
       logoBg: "dark",
@@ -96,6 +103,7 @@ export const companies = {
     },
     {
       id: "247firstcare",
+      art: "/images/bg-health.webp",
       brand: "247FirstCare",
       logo: "/images/247firstcare-logo.png",
       logoBg: "dark",
@@ -109,6 +117,7 @@ export const companies = {
     },
     {
       id: "earnvarx",
+      art: "/images/bg-rx.webp",
       brand: "EarnvaRx",
       logo: "/images/earnvarx-logo.png",
       logoBg: "light",
@@ -122,6 +131,7 @@ export const companies = {
     },
     {
       id: "aet-trust",
+      art: "/images/aet-trust-logo.png",
       brand: "AET Trust",
       logo: "/images/aet-trust-logo.png",
       logoBg: "light",
@@ -137,7 +147,7 @@ export const companies = {
 };
 
 export const earnvaFeature = {
-  title: "Your all-in-one digital wallet.",
+  title: "Your {all-in-one} digital wallet.",
   body: "Unify your complete financial footprint. Consolidate up to 1,000 cards into a single, ledger-secured interface to unlock instant rewards and seamless spending power across our global network.",
   features: [
     {
@@ -156,31 +166,55 @@ export const earnvaFeature = {
 };
 
 export const closing = {
-  title: "Connect offline-in-life data to predict consumer intent, drive measurable growth, and power business outcomes.",
+  title: "Connect offline-in-life data to predict consumer intent, drive {measurable growth}, and power business outcomes.",
   cta: { label: "Partner with us", href: "/contact" },
 };
 
 export const about = {
-  title: "Revolutionizing market intelligence across industries for the future.",
-  whoTitle: "Understanding the Infortum ecosystem.",
+  title: "Revolutionizing {market intelligence} across industries for the future.",
+  whoTitle: "Understanding the {Infortum ecosystem.}",
   who: [
     "Welcome to Infortum Inc., a Nevada-based technology holding company engineering the future of digital infrastructure. We consolidate complex financial and health data into seamless, user-centric ecosystems powered by advanced machine learning.",
     "Our diverse portfolio of subsidiaries delivers unified solutions at a global scale. From real-time digital healthcare access via 247FirstCare and EarnvaRx, to the frictionless payment and custody architectures of UpswingPay and AET Trust, we engineer secure systems that drive measurable outcomes.",
     "At the core of our consumer ecosystem is the Earnva™ Savings and Rewards Network (ESRN). Supported by the proprietary Earnva™ Card, we leverage localized intent data and AI to deliver hyper-personalized value to users while providing merchants with unparalleled predictive insights.",
     "Join us in architecting a seamlessly connected future where secure data and intelligent systems empower boundless human potential.",
   ],
-  valueTitle: "Architecting the platform of tomorrow.",
+  valueTitle: "Architecting the {platform of tomorrow.}",
   valueBody: "We are driving innovation in finance and healthcare through our diverse portfolio of companies.",
-  // Vision + Mission merged into one block (decision, Oct 2026)
-  missionTitle: "Our vision and mission",
-  mission: [
-    "Infortum exists to revolutionize the FinTech and HealthTech industries by seamlessly integrating advanced technology with personalized service. We empower individuals and businesses with innovative solutions that enhance financial management, promote savings, and improve overall well-being.",
-    "By leveraging cutting-edge data management and machine learning, and through our commitment to excellence, security, and user-centric design, we deliver comprehensive products that drive real value — building a future where technology and personalized care lead to better financial and health outcomes for all.",
+  // Vision and Mission rewritten as two distinct statements (Oct 2026 redesign) — DRAFT for DJ/Eddy review
+  vision: {
+    label: "Our vision",
+    text: "A future where technology and personalized care lead to better {financial and health outcomes} for everyone.",
+  },
+  mission: {
+    label: "Our mission",
+    text: "We integrate advanced data management and machine learning with personalized service to build FinTech and HealthTech products that help people save, manage their money and stay healthy, and that give businesses the insight to serve them better.",
+  },
+  values: [
+    { name: "Engage", body: "We meet people where they already are, turning everyday moments into value they can feel." },
+    { name: "Empower", body: "We give individuals and businesses the tools and insight to make smarter financial and health decisions." },
+    { name: "Entrust", body: "We treat every piece of data as a responsibility, building security and privacy into everything we make." },
   ],
+  leadership: {
+    title: "Leadership",
+    people: [
+      {
+        name: "Eddy Pham",
+        role: "Founder & CEO",
+        photo: "/images/eddy-pham.webp",
+        // DRAFT bio — confirm with Eddy
+        bio: [
+          "Eddy Pham is the Founder and CEO of Infortum Inc., where he leads a portfolio spanning financial technology and digital health, including Earnva, 247FirstCare, EarnvaRx and AET Trust.",
+          "He also runs EPCO International, a product development and direct response marketing firm.",
+        ],
+        quote: "I never wanted to create another discount app. I wanted to build an intelligent ecosystem that helps people save, earn and make better decisions.",
+      },
+    ],
+  },
 };
 
 export const contact = {
-  title: "Let's collaborate.",
+  title: "Let's {collaborate.}",
   body: "Connect with Infortum to unlock innovation. Let's transform ideas into reality.",
   aboutFormTitle: "Want to know more?",
   aboutFormBody: "We talk a lot about innovative solutions. Fill out the form to stay in the know with Infortum.",

@@ -19,18 +19,18 @@ export function Header() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled || open ? "border-b border-line bg-ink/80 backdrop-blur-xl" : "border-b border-transparent"
+        scrolled || open ? "bg-ink/70 backdrop-blur-xl" : ""
       }`}
     >
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-5 sm:px-8">
         <Link href="/" className="shrink-0" aria-label="Infortum home" onClick={() => setOpen(false)}>
           <Image
-            src="/images/infortum-logo-white.png"
+            src="/images/infortum-wordmark-white.png"
             alt="Infortum"
-            width={1536}
-            height={312}
+            width={1600}
+            height={451}
             priority
-            className="h-8 w-auto sm:h-9"
+            className="h-7 w-auto sm:h-8"
           />
         </Link>
 
@@ -50,7 +50,7 @@ export function Header() {
 
         <button
           type="button"
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-line md:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-full ring-1 ring-white/15 md:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}
@@ -68,14 +68,14 @@ export function Header() {
       </div>
 
       {open && (
-        <nav id="mobile-nav" aria-label="Mobile" className="border-t border-line px-5 pb-8 pt-4 md:hidden">
+        <nav id="mobile-nav" aria-label="Mobile" className="px-5 pb-8 pt-4 md:hidden">
           <ul className="flex flex-col">
             {[...nav, { label: "Contact us", href: "/contact" }].map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="block border-b border-line py-4 font-display text-2xl"
+                  className="block py-3 font-display text-2xl"
                 >
                   {item.label}
                 </Link>
