@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { SignalField } from "@/components/SignalField";
-import { EcosystemHub } from "@/components/EcosystemHub";
-import { EcosystemScroll } from "@/components/EcosystemScroll";
+import { EcosystemBento } from "@/components/EcosystemBento";
+import { DataStage } from "@/components/DataStage";
+import { VideoBackdrop } from "@/components/VideoBackdrop";
 import { CompanyStack } from "@/components/CompanyStack";
 import { DeviceReveal } from "@/components/DeviceReveal";
 import { GText } from "@/components/GText";
@@ -54,25 +55,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Ecosystem — pinned scroll through the four pillars */}
-      <section aria-labelledby="infortum" className="relative">
+      {/* Ecosystem — bento */}
+      <section aria-labelledby="infortum" className="relative py-28 sm:py-40">
+        <EcosystemBento />
+      </section>
+
+      {/* Data components — pinned stage */}
+      <section aria-labelledby="data" className="relative">
         {/* Glow lives in its own clipped layer so the sticky scroll keeps working */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
           <div className="glow-violet absolute left-0 top-1/3 h-[50rem] w-[50rem] -translate-x-1/3 opacity-40" />
         </div>
-        <span id="infortum" className="sr-only">Infortum ecosystem</span>
-        <EcosystemScroll />
-      </section>
-
-      {/* Data components — Infortum hub */}
-      <section aria-labelledby="data" className="relative overflow-hidden py-28 sm:py-40">
-        <div aria-hidden="true" className="glow-cyan pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[60rem] w-[60rem] -translate-x-1/2 -translate-y-1/2 opacity-40" />
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <SectionHead id="data" title={dataLayers.title} body={dataLayers.body} center />
-          <div className="mt-16 sm:mt-20">
-            <EcosystemHub />
-          </div>
-        </div>
+        <DataStage id="data" title={dataLayers.title} items={dataLayers.layers} />
       </section>
 
       {/* Companies — stacked scroll-through */}
@@ -91,8 +85,8 @@ export default function Home() {
       </section>
 
       {/* Closing */}
-      <section className="relative overflow-hidden py-32 sm:py-48">
-        <div aria-hidden="true" className="glow-violet pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[44rem] w-[70rem] -translate-x-1/2 -translate-y-1/2 opacity-60" />
+      <section className="relative isolate overflow-hidden py-40 sm:py-56">
+        <VideoBackdrop opacity={0.4} />
         <div className="mx-auto max-w-5xl px-5 text-center sm:px-8">
           <p className="text-balance font-display text-3xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
             <GText text={closing.title} />

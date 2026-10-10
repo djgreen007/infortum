@@ -8,40 +8,29 @@ import { usePrefersReducedMotion } from "@/lib/useScrollProgress";
 type Company = (typeof companies.items)[number];
 
 function Card({ c, index }: { c: Company; index: number }) {
-  const isLogoArt = c.art.includes("aet-trust");
   return (
     <article
       id={c.id}
       className="relative grid min-h-[min(44rem,80svh)] overflow-hidden rounded-[2rem] bg-[#0b0c12] ring-1 ring-white/10 lg:grid-cols-[1.1fr_1fr]"
       style={{ boxShadow: "0 -30px 80px -20px rgba(0,0,0,0.9)" }}
     >
-      {/* Art */}
-      <div className="relative order-first min-h-[15rem] lg:order-last lg:min-h-0">
-        <div className={`absolute inset-0 ${index % 2 ? "glow-violet" : "glow-cyan"} opacity-80`} />
-        {isLogoArt ? (
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="relative aspect-square w-[46%] max-w-[18rem] overflow-hidden rounded-full bg-paper shadow-[0_0_120px_rgba(0,185,255,0.35)]">
-              <Image src={c.art} alt="" fill sizes="18rem" className="object-contain" />
-            </div>
+      {/* Brand logo */}
+      <div className="relative order-first flex min-h-[14rem] items-center justify-center lg:order-last lg:min-h-0">
+        <div className={`absolute inset-0 ${index % 2 ? "glow-violet" : "glow-cyan"} opacity-90`} />
+        {c.logoBg === "light" ? (
+          <div className="relative aspect-square w-[44%] max-w-[17rem] overflow-hidden rounded-full bg-paper shadow-[0_0_120px_rgba(0,185,255,0.35)]">
+            <Image src={c.logo} alt={`${c.brand} logo`} fill sizes="17rem" className="object-contain" />
           </div>
         ) : (
-          <Image src={c.art} alt="" fill sizes="(min-width:1024px) 45vw, 100vw" className="object-contain object-center p-6 mix-blend-lighten lg:p-12" />
+          <div className="relative h-[42%] min-h-[7rem] w-[68%] max-w-[24rem] drop-shadow-[0_0_40px_rgba(0,255,255,0.25)]">
+            <Image src={c.logo} alt={`${c.brand} logo`} fill sizes="24rem" className="object-contain" />
+          </div>
         )}
-        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0b0c12] to-transparent lg:inset-y-0 lg:left-0 lg:h-auto lg:w-32 lg:bg-gradient-to-r" />
       </div>
 
       {/* Copy */}
       <div className="relative flex flex-col justify-center p-7 sm:p-10 lg:p-14">
-        <div className="flex items-center gap-3">
-          <span
-            className={`flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl ${
-              c.logoBg === "light" ? "bg-paper" : "glass p-1.5"
-            }`}
-          >
-            <Image src={c.logo} alt="" width={88} height={88} className="h-full w-full object-contain" />
-          </span>
-          <p className="font-display text-sm text-mist">{c.brand}</p>
-        </div>
+        <p className="font-display text-sm text-mist">{c.brand}</p>
         <h3 className="mt-6 text-balance font-display text-3xl font-semibold leading-[1.05] tracking-tight sm:text-5xl">{c.title}</h3>
         <p className="mt-5 max-w-xl text-pretty text-lg leading-relaxed text-mist">{c.body}</p>
         <ul className="mt-8 space-y-2.5">
