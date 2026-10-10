@@ -199,7 +199,7 @@ export const about = {
     { name: "Empower", body: "We give individuals and businesses the tools and insight to make smarter financial and health decisions." },
     { name: "Entrust", body: "We treat every piece of data as a responsibility, building security and privacy into everything we make." },
   ],
-  // Leadership from the 2026 Business Plan (bios condensed for the public site — confirm with each person)
+  // Leadership: Eddy Pham only (per DJ)
   leadership: {
     title: "Leadership",
     people: [
@@ -212,18 +212,6 @@ export const about = {
           "His background spans FinTech, HealthTech, retail, direct-to-consumer and media, with deep expertise in consumer behavior, data-driven marketing and hardware and software integration.",
         ],
         quote: "I never wanted to create another discount app. I wanted to build an intelligent ecosystem that helps people save, earn and make better decisions.",
-      },
-    ],
-        quote: null,
-      },
-      {
-        name: "Lawrence Lanoff",
-        role: "Chief Innovation Officer",
-        photo: null,
-        bio: [
-          "Lawrence Lanoff brings more than 35 years in technology across film, TV, marketing and manufacturing, and has worked in blockchain and Web3 since Bitcoin's launch. He leads blockchain development for the Earnva platform and network.",
-        ],
-        quote: null,
       },
     ],
   },
