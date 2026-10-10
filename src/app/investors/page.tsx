@@ -204,7 +204,7 @@ export default function InvestorsPage() {
                   </span>
                   <span className="relative mt-auto pt-6 text-xs text-haze">{c.category}</span>
                   <span className="relative mt-1.5 flex items-end justify-between gap-2 font-display text-lg font-semibold leading-tight">
-                    {"appName" in c ? c.appName : c.name}
+                    {c.name}
                     <span aria-hidden="true" className="text-signal transition-transform duration-500 group-hover:translate-x-1">→</span>
                   </span>
                 </Link>

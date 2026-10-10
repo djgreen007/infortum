@@ -32,8 +32,8 @@ export const ecosystem = {
       name: "Earnva Smart Wallet",
       short: "Smart Wallet",
       icon: "wallet",
-      image: "/images/earnva-card.webp",
-      body: "Replace fragmented physical wallets with an immutable hardware gateway. Consolidating 1,000 cards into one ledger-secured device eliminates daily friction while ensuring unbreachable control over your unified financial identity.",
+      image: "/images/earnva-app.webp",
+      body: "Replace a fragmented wallet with one secure app. Load your payment, loyalty, membership and gift cards into a single encrypted Smart Wallet for less friction and complete control over your financial identity.",
     },
     {
       name: "Earnva Savings & Rewards (ESRN)",
@@ -78,16 +78,16 @@ export const companies = {
   items: [
     {
       id: "earnva",
-      art: "/images/earnva-card.webp",
+      art: "/images/earnva-app.webp",
       brand: "Earnva",
       logo: "/images/earnva-logo.png",
       logoBg: "dark",
       title: "Your all-in-one digital wallet.",
-      body: "Consolidate your entire wallet — credit, debit, and loyalty cards — onto one secure smart card to experience true financial freedom.",
+      body: "Bring your entire wallet — credit, debit, and loyalty cards — into one secure app and experience true financial freedom.",
       points: [
-        "Emulate up to 1,000 cards on a single hardware device.",
-        "Keep your financial identity unbreachable and completely secure.",
-        "Eliminate the physical friction of carrying legacy wallets.",
+        "Store your payment, loyalty and membership cards in one app.",
+        "Keep your financial identity private and secure.",
+        "Leave the bulky wallet behind.",
       ],
     },
     {
@@ -151,11 +151,11 @@ export const companies = {
 
 export const earnvaFeature = {
   title: "Your {all-in-one} digital wallet.",
-  body: "Unify your complete financial footprint. Consolidate up to 1,000 cards into a single, ledger-secured interface to unlock instant rewards and seamless spending power across our global network.",
+  body: "Unify your complete financial footprint in one secure app to unlock instant rewards and seamless spending power across our global network.",
   features: [
     {
-      name: "Consolidate all your cards in one",
-      body: "Emulate up to 1,000 cards with the built-in digital wallet — credit, debit, loyalty, membership, gift cards and more — all on one card.",
+      name: "All your cards in one app",
+      body: "Load credit, debit, loyalty, membership, gift cards and more into the Earnva Smart Wallet, all in one place.",
     },
     {
       name: "Exclusive savings & rewards",
@@ -179,7 +179,7 @@ export const about = {
   who: [
     "Welcome to Infortum Inc., a Nevada-based technology holding company engineering the future of digital infrastructure. We consolidate complex financial and health data into seamless, user-centric ecosystems powered by advanced machine learning.",
     "Our diverse portfolio of subsidiaries delivers unified solutions at a global scale. From real-time digital healthcare access via 247FirstCare and EarnvaRx, to the banking and custody architecture of AET Trust, we engineer secure systems that drive measurable outcomes.",
-    "At the core of our consumer ecosystem is the Earnva™ Savings and Rewards Network (ESRN). Supported by the proprietary Earnva™ Card, we leverage localized intent data and AI to deliver hyper-personalized value to users while providing merchants with unparalleled predictive insights.",
+    "At the core of our consumer ecosystem is the Earnva™ Savings and Rewards Network (ESRN). Powered by the Earnva™ app, we leverage localized intent data and AI to deliver hyper-personalized value to users while providing merchants with unparalleled predictive insights.",
     "Join us in architecting a seamlessly connected future where secure data and intelligent systems empower boundless human potential.",
   ],
   valueTitle: "Architecting the {platform of tomorrow.}",
@@ -208,7 +208,7 @@ export const about = {
         photo: "/images/eddy-pham.webp",
         bio: [
           "Eddy Pham is the Founder and CEO of Infortum Inc. A proven operator with more than 30 years of experience, he has launched over 150 consumer products and scaled brands into millions of households through product development, direct-response marketing and large-scale commercialization.",
-          "His background spans FinTech, HealthTech, retail, direct-to-consumer and media, with deep expertise in consumer behavior, data-driven marketing and hardware and software integration.",
+          "His background spans FinTech, HealthTech, retail, direct-to-consumer and media, with deep expertise in consumer behavior, data-driven marketing and technology integration.",
         ],
         quote: "I never wanted to create another discount app. I wanted to build an intelligent ecosystem that helps people save, earn and make better decisions.",
       },
@@ -226,7 +226,7 @@ export const contact = {
 
 export const footer = {
   services: [
-    { label: "Earnva Card", href: "/portfolio#earnva" },
+    { label: "Earnva App", href: "/portfolio#earnva" },
     { label: "Earnva Savings & Rewards", href: "/portfolio#esrn" },
     { label: "EarnvaRx", href: "/portfolio#earnvarx" },
     { label: "247FirstCare", href: "/portfolio#247firstcare" },
@@ -254,17 +254,16 @@ export const portfolio = {
   companies: [
     {
       id: "earnva",
-      name: "Earnva Card & Smart Wallet",
-      appName: "Earnva App & Smart Wallet",
-      category: "FinTech · Hardware",
+      name: "Earnva App & Smart Wallet",
+      category: "FinTech · Mobile",
       logo: "/images/earnva-logo.png",
       logoBg: "dark",
-      summary: "A next-generation smart card and app that replace the entire wallet. One card emulates hundreds of payment, loyalty, membership, gift and access cards.",
+      summary: "A smart wallet app that replaces the entire wallet. Members load their payment, loyalty, membership, gift and access cards into one secure app.",
       facts: [
-        "Biometric fingerprint unlock, color e-paper touch display",
-        "Dynamic EMV, NFC/RFID and key-fob emulation",
+        "One app for payment, loyalty, membership and gift cards",
         "Tokenized data, encrypted cloud and blockchain-logged activity",
-        "Earn Earnva points on top of your existing card rewards",
+        "AI-personalized offers wherever members go",
+        "Earn Earnva points on top of the rewards you already get",
       ],
     },
     {

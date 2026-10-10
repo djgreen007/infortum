@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description: site.description,
     url: site.url,
     siteName: "Infortum",
-    images: ["/images/earnva-devices.png"],
+    images: ["/images/earnva-app.webp"],
     type: "website",
   },
   twitter: { card: "summary_large_image" },

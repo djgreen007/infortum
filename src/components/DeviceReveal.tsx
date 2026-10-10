@@ -73,10 +73,10 @@ export function DeviceReveal() {
               }}
             >
               <Image
-                src="/images/earnva-devices.png"
-                alt="Earnva app on a phone, the Earnva card, and a smartwatch"
-                width={1485}
-                height={2048}
+                src="/images/earnva-app.webp"
+                alt="The Earnva app on a phone"
+                width={790}
+                height={1220}
                 sizes="(min-width:1024px) 28rem, 90vw"
                 className="h-auto w-full"
               />
