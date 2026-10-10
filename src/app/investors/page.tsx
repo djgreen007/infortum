@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import { AuroraBackdrop } from "@/components/AuroraBackdrop";
+import { CountUp } from "@/components/CountUp";
+import { EarnerJourney } from "@/components/EarnerJourney";
+import { VideoBackdrop } from "@/components/VideoBackdrop";
 import { ContactForm } from "@/components/ContactForm";
 import { GText, plain } from "@/components/GText";
 import { Leadership } from "@/components/Leadership";
@@ -11,6 +16,13 @@ export const metadata: Metadata = {
   description: plain(inv.hero.body),
 };
 
+const SCALE_GLOWS = [
+  "radial-gradient(60% 80% at 100% 0%, rgba(0,255,255,0.16), transparent 70%)",
+  "radial-gradient(70% 80% at 0% 100%, rgba(139,0,255,0.22), transparent 70%)",
+  "radial-gradient(70% 80% at 100% 100%, rgba(0,185,255,0.18), transparent 70%)",
+  "radial-gradient(60% 80% at 0% 0%, rgba(139,0,255,0.2), transparent 70%)",
+];
+
 const H2 = ({ id, text }: { id: string; text: string }) => (
   <h2 id={id} className="max-w-4xl text-balance font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
     <GText text={text} />
@@ -21,11 +33,8 @@ export default function InvestorsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden pb-20 pt-40 sm:pt-52">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-          <div className="glow-violet absolute -right-40 -top-40 h-[48rem] w-[48rem] opacity-70" />
-          <div className="glow-cyan absolute -left-60 top-40 h-[40rem] w-[40rem] opacity-40" />
-        </div>
+      <section className="relative isolate overflow-hidden pb-24 pt-40 sm:pt-52">
+        <AuroraBackdrop />
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <p className="font-display text-sm text-mist">{inv.hero.eyebrow}</p>
           <h1 className="mt-6 max-w-5xl text-balance font-display text-[2.6rem] font-semibold leading-[1.02] tracking-[-0.03em] sm:text-6xl lg:text-[5.25rem]">
@@ -80,51 +89,40 @@ export default function InvestorsPage() {
       </section>
 
       {/* Flywheel */}
-      <section aria-labelledby="flywheel" className="py-20 sm:py-28">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <H2 id="flywheel" text={inv.flywheel.title} />
-          <p className="mt-6 max-w-2xl text-pretty text-lg text-mist">{inv.flywheel.body}</p>
-          <ol className="mt-14 grid gap-4 md:grid-cols-5">
-            {inv.flywheel.steps.map((s, i) => (
-              <li key={s.name} className="glass relative rounded-[1.75rem] p-7">
-                <span className="grid h-10 w-10 place-items-center rounded-full bg-signal-gradient font-display text-sm font-semibold text-ink">
-                  {i + 1}
-                </span>
-                <p className="mt-6 font-display text-xl font-semibold">{s.name}</p>
-                <p className="mt-3 text-pretty text-[0.95rem] leading-relaxed text-mist">{s.body}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
+      <section aria-labelledby="flywheel">
+        <EarnerJourney title={inv.flywheel.title} body={inv.flywheel.body} steps={inv.flywheel.steps} />
       </section>
 
       {/* Scale */}
       <section aria-labelledby="scale" className="py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <H2 id="scale" text={inv.scale.title} />
-          <dl className="mt-14 grid grid-cols-2 gap-x-10 gap-y-12 lg:grid-cols-4">
-            {inv.scale.stats.map((s) => (
-              <div key={s.label}>
-                <dt className="sr-only">{s.label}</dt>
-                <dd className="font-display text-5xl font-semibold tracking-tight sm:text-6xl">{s.value}</dd>
-                <dd className="mt-3 max-w-[14rem] text-mist">{s.label}</dd>
-              </div>
+          <ul className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-12 lg:gap-5">
+            {inv.scale.stats.map((s, i) => (
+              <li
+                key={s.label}
+                className={`glass-strong group relative flex min-h-[15rem] flex-col justify-between overflow-hidden rounded-[2rem] p-8 sm:p-10 ${["lg:col-span-7", "lg:col-span-5", "lg:col-span-5", "lg:col-span-7"][i]}`}
+              >
+                <div aria-hidden="true" className="absolute inset-0 opacity-80 transition-opacity duration-500 group-hover:opacity-100" style={{ background: SCALE_GLOWS[i] }} />
+                <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-transparent via-white/[0.07] to-transparent animate-[sheen_7s_ease-in-out_infinite]" style={{ animationDelay: `${i * 1.2}s` }} />
+                <CountUp value={s.value} className="relative font-display text-6xl font-semibold tracking-tight sm:text-7xl" />
+                <p className="relative mt-8 max-w-xs text-lg text-mist">{s.label}</p>
+              </li>
             ))}
-          </dl>
+          </ul>
         </div>
       </section>
 
       {/* Business model */}
-      <section aria-labelledby="model" className="relative overflow-hidden py-24 sm:py-36">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-          <div className="glow-cyan absolute right-0 top-1/3 h-[40rem] w-[40rem] opacity-40" />
-        </div>
+      <section aria-labelledby="model" className="relative isolate overflow-hidden py-28 sm:py-40">
+        <VideoBackdrop opacity={0.35} />
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <H2 id="model" text={inv.model.title} />
           <ul className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {inv.model.streams.map((m) => (
-              <li key={m.name} className="glass rounded-[1.75rem] p-8">
-                <p className="font-display text-xl font-semibold">{m.name}</p>
+            {inv.model.streams.map((m, i) => (
+              <li key={m.name} className="glass-strong group relative overflow-hidden rounded-[1.75rem] p-8 transition-transform duration-500 hover:-translate-y-1">
+                <span className="font-display text-sm text-signal-gradient">0{i + 1}</span>
+                <p className="mt-4 font-display text-xl font-semibold">{m.name}</p>
                 <p className="mt-3 text-pretty leading-relaxed text-mist">{m.body}</p>
               </li>
             ))}
@@ -141,7 +139,7 @@ export default function InvestorsPage() {
           </div>
           <ul className="grid content-center gap-3 sm:grid-cols-2">
             {inv.moat.capabilities.map((c) => (
-              <li key={c} className="glass flex items-center gap-3 rounded-2xl px-5 py-4 text-paper/90">
+              <li key={c} className="glass-strong flex items-center gap-3 rounded-2xl px-5 py-4 text-paper/90">
                 <svg aria-hidden="true" viewBox="0 0 16 16" className="h-4 w-4 shrink-0 text-lime">
                   <path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
@@ -158,7 +156,7 @@ export default function InvestorsPage() {
           <H2 id="roadmap" text={inv.roadmap.title} />
           <ol className="mt-14 grid gap-5 md:grid-cols-3">
             {inv.roadmap.phases.map((p, i) => (
-              <li key={p.name} className={`rounded-[2rem] p-8 sm:p-10 ${i === 0 ? "glass-strong ring-1 ring-signal/30" : "glass"}`}>
+              <li key={p.name} className={`rounded-[2rem] p-8 sm:p-10 glass-strong ${i === 0 ? "ring-1 ring-signal/30" : ""}`}>
                 <p className="font-display text-3xl font-semibold">
                   {i === 0 ? <span className="text-signal-gradient">{p.name}</span> : p.name}
                 </p>
@@ -176,19 +174,39 @@ export default function InvestorsPage() {
         </div>
       </section>
 
-      {/* Portfolio strip */}
-      <section aria-labelledby="companies" className="py-16">
+      {/* Portfolio */}
+      <section aria-labelledby="companies" className="py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="flex flex-wrap items-end justify-between gap-6">
-            <h2 id="companies" className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">The portfolio</h2>
-            <Link href="/portfolio" className="text-sm text-mist underline underline-offset-4 hover:text-paper">See every company</Link>
+            <H2 id="companies" text="Five companies. {One ecosystem.}" />
+            <Link href="/portfolio" className="text-sm text-mist underline underline-offset-4 hover:text-paper">
+              See every company
+            </Link>
           </div>
-          <ul className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
-            {portfolio.companies.map((c) => (
-              <li key={c.id}>
-                <Link href={`/portfolio#${c.id}`} className="glass flex h-full flex-col justify-between gap-6 rounded-[1.5rem] p-5 transition hover:bg-white/10">
-                  <span className="text-xs text-haze">{c.category}</span>
-                  <span className="font-display text-base font-semibold leading-tight">{c.name}</span>
+          <ul className="mt-14 grid grid-cols-2 gap-4 lg:grid-cols-5">
+            {portfolio.companies.map((c, i) => (
+              <li key={c.id} className={i === 0 ? "col-span-2 lg:col-span-1" : ""}>
+                <Link
+                  href={`/portfolio#${c.id}`}
+                  className="glass-strong group relative flex h-full min-h-[15rem] flex-col overflow-hidden rounded-[1.75rem] p-6 transition duration-500 hover:-translate-y-1.5 hover:shadow-[0_30px_80px_-30px_rgba(0,255,255,0.45)]"
+                >
+                  <div aria-hidden="true" className={`absolute inset-0 ${i % 2 ? "glow-violet" : "glow-cyan"} opacity-0 transition-opacity duration-500 group-hover:opacity-100`} />
+                  <span className="relative flex h-24 items-center justify-center">
+                    {c.logoBg === "light" ? (
+                      <span className="relative block h-20 w-20 overflow-hidden rounded-full bg-paper">
+                        <Image src={c.logo!} alt="" fill sizes="80px" className="object-contain" />
+                      </span>
+                    ) : (
+                      <span className="relative block h-16 w-full max-w-[9rem]">
+                        <Image src={c.logo!} alt="" fill sizes="144px" className="object-contain" />
+                      </span>
+                    )}
+                  </span>
+                  <span className="relative mt-auto pt-6 text-xs text-haze">{c.category}</span>
+                  <span className="relative mt-1.5 flex items-end justify-between gap-2 font-display text-lg font-semibold leading-tight">
+                    {"appName" in c ? c.appName : c.name}
+                    <span aria-hidden="true" className="text-signal transition-transform duration-500 group-hover:translate-x-1">→</span>
+                  </span>
                 </Link>
               </li>
             ))}

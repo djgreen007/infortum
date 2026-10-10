@@ -255,6 +255,7 @@ export const portfolio = {
     {
       id: "earnva",
       name: "Earnva Card & Smart Wallet",
+      appName: "Earnva App & Smart Wallet",
       category: "FinTech · Hardware",
       logo: "/images/earnva-logo.png",
       logoBg: "dark",
@@ -319,7 +320,7 @@ export const investors = {
     points: [
       { name: "Offline In-Life Data", body: "Groceries, gas, travel, dining, health choices. Infortum captures what people actually do in the physical world, not what they browse." },
       { name: "User-owned and consented", body: "Every Earner owns their data, controls permissions and sees their full engagement history. Value is created with consent, not around it." },
-      { name: "One touch point", body: "A single card, app and network become the first app a member opens and the last they close, generating daily engagement no single-purpose app can match." },
+      { name: "One touch point", body: "One app and one network become the first thing a member opens and the last they close, generating daily engagement no single-purpose app can match." },
     ],
   },
   market: {
@@ -336,9 +337,9 @@ export const investors = {
     title: "How a consumer becomes an {Earner.}",
     body: "Every action earns value, every purchase generates savings, and every engagement builds a richer, user-owned profile.",
     steps: [
-      { name: "Onboard", body: "One account, one card, one app. Members load every financial, loyalty, membership and gift card into the Smart Wallet." },
-      { name: "Activate", body: "Tap to pay, unlock memberships and redeem offers from one card, earning Earnva points on top of their existing card rewards." },
-      { name: "Earn on everything", body: "Points for using the card and app, daily check-ins, travel, referrals and finance challenges. Points never expire." },
+      { name: "Onboard", body: "One account, one app. Members load their payment, loyalty, membership and gift cards into the Earnva Smart Wallet." },
+      { name: "Activate", body: "Pay, unlock memberships and redeem offers right from the app, earning Earnva points on top of the rewards they already get." },
+      { name: "Earn on everything", body: "Points for using the app, daily check-ins, travel, referrals and finance challenges. Points never expire." },
       { name: "Unlock membership", body: "Premium members access the full Earnva Savings & Rewards Network across millions of merchants." },
       { name: "Personalize", body: "AI learns real-world preferences to surface hyper-relevant offers, so members save more and merchants sell more." },
     ],
@@ -356,7 +357,7 @@ export const investors = {
     title: "Multiple ways to {compound value.}",
     streams: [
       { name: "Memberships", body: "Recurring subscription revenue from freemium-to-premium upgrades across the rewards network." },
-      { name: "Hardware & wallet", body: "Earnva Card sales and premium wallet features that anchor daily use." },
+      { name: "Premium app features", body: "Premium Smart Wallet and app features that anchor daily use." },
       { name: "Merchant partnerships", body: "Merchants pay for targeted promotions and real engagement, not coupon chasers." },
       { name: "Enterprise white label", body: "Rewards, payroll, benefits and incentive programs for corporations, insurers, credit unions and travel brands." },
       { name: "Health services", body: "Virtual care and prescription memberships that deliver measurable savings." },
@@ -365,14 +366,14 @@ export const investors = {
   },
   moat: {
     title: "No other wallet {combines it all.}",
-    body: "Infortum owns its core technology, including smart-card hardware integrations, data architecture, rewards ecosystems and the Earnva Smart Wallet platform.",
+    body: "Infortum owns its core technology, including its data architecture, rewards ecosystem and the Earnva app and Smart Wallet platform.",
     capabilities: ["Digital wallet", "Rewards network", "Health benefits", "Biometrics", "Blockchain", "Merchant analytics", "Tokenized data", "One-to-one personalization"],
   },
   roadmap: {
-    title: "From one card to a {global ecosystem.}",
+    title: "From one app to a {global ecosystem.}",
     phases: [
       { name: "Now", items: ["Earnva Savings & Rewards Network", "Earnva app and Smart Wallet", "EarnvaRx prescription savings", "247FirstCare virtual care"] },
-      { name: "Next", items: ["Earnva Card hardware", "Enterprise and employer white label", "AI financial coaching", "Health-linked rewards"] },
+      { name: "Next", items: ["Enterprise and employer white label", "AI financial coaching", "Health-linked rewards"] },
       { name: "Future", items: ["Global banking via AET Trust", "Low-cost cross-border remittances", "Secure precious metals and digital asset vault", "International expansion: Canada, EU and Asia"] },
     ],
   },

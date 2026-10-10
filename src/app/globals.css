@@ -108,3 +108,27 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Slow-moving brand aurora (Investors hero) */
+@keyframes aurora-a {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  33% { transform: translate3d(18%, 10%, 0) scale(1.15); }
+  66% { transform: translate3d(-10%, 16%, 0) scale(0.92); }
+}
+@keyframes aurora-b {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
+  50% { transform: translate3d(-22%, -8%, 0) scale(1.2) rotate(25deg); }
+}
+@keyframes aurora-c {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(0.9); }
+  50% { transform: translate3d(14%, -14%, 0) scale(1.1); }
+}
+.aurora-a { animation: aurora-a 22s ease-in-out infinite; }
+.aurora-b { animation: aurora-b 28s ease-in-out infinite; }
+.aurora-c { animation: aurora-c 18s ease-in-out infinite; }
+
+/* Glossy sheen sweep for bento tiles */
+@keyframes sheen {
+  0% { transform: translateX(-120%) skewX(-18deg); }
+  60%, 100% { transform: translateX(220%) skewX(-18deg); }
+}
