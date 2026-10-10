@@ -201,7 +201,7 @@ export default function InvestorsPage() {
 
       {/* Leadership */}
       <section aria-labelledby="leadership" className="relative overflow-hidden py-24 sm:py-36">
-        <Leadership heading="The team building it" />
+        <Leadership heading="Leadership" />
       </section>
 
       {/* Investor brief form */}

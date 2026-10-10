@@ -213,13 +213,7 @@ export const about = {
         ],
         quote: "I never wanted to create another discount app. I wanted to build an intelligent ecosystem that helps people save, earn and make better decisions.",
       },
-      {
-        name: "Ammon Green",
-        role: "Chief Digital Officer",
-        photo: null,
-        bio: [
-          "Ammon Green leads data intelligence, cloud architecture and enterprise development, turning Infortum's data, ecosystem and partnerships into scalable revenue verticals, securely, ethically and with measurable lift.",
-        ],
+    ],
         quote: null,
       },
       {
