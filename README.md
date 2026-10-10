@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# infortum.io
 
-## Getting Started
+Marketing site for Infortum Inc. — Next.js 15 (App Router) + Tailwind CSS v4, deployed on Vercel.
+Copy was recovered from the Wayback Machine (Apr 2026 snapshot) and lives in `src/lib/content.ts`.
 
-First, run the development server:
+## Develop
 
 ```bash
+npm install
+cp .env.example .env.local   # fill in values
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Pages
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+`/` · `/about` · `/contact` · `/privacy-policy` · `/terms-of-use` · `/cookie-policy`
+Old WordPress URLs (`/about-us/`, `/contact-us/`) redirect to the new ones.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Contact form
 
-## Learn More
+`POST /api/contact` stores each submission in Supabase (`contact_submissions`) and emails it via Resend.
+Either one is enough for the form to succeed; set both for production.
 
-To learn more about Next.js, take a look at the following resources:
+1. Supabase → SQL Editor → run `supabase/migrations/0001_contact_submissions.sql`
+2. Vercel → Project → Settings → Environment Variables:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Name | Value |
+|---|---|
+| `SUPABASE_URL` | Supabase → Project Settings → API → Project URL |
+| `SUPABASE_SERVICE_ROLE_KEY` | Supabase → Project Settings → API → `service_role` secret |
+| `RESEND_API_KEY` | resend.com → API Keys |
+| `CONTACT_TO_EMAIL` | `eddy@infortum.io` |
+| `CONTACT_FROM_EMAIL` | `Infortum Website <website@infortum.io>` (domain must be verified in Resend) |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Editing content
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All copy: `src/lib/content.ts`. Legal text: `src/content/legal/*.md`. Images: `public/images/`.
