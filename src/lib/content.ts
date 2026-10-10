@@ -32,24 +32,28 @@ export const ecosystem = {
     {
       name: "Earnva Smart Wallet",
       short: "Smart Wallet",
+      icon: "wallet",
       image: "/images/earnva-card.webp",
       body: "Replace fragmented physical wallets with an immutable hardware gateway. Consolidating 1,000 cards into one ledger-secured device eliminates daily friction while ensuring unbreachable control over your unified financial identity.",
     },
     {
       name: "Earnva Savings & Rewards (ESRN)",
       short: "Savings & Rewards",
+      icon: "coins",
       image: "/images/bg-money.webp",
       body: "Converts offline intent into instant, closed-loop purchasing power across millions of premium global destinations, including 2M+ hotels, 300,000+ US restaurants, and more.",
     },
     {
       name: "Global Banking & Custody",
       short: "Banking & Custody",
+      icon: "bank",
       image: "/images/aet-trust-logo.png",
       body: "Unifies global banking and digital asset custody into one seamless interface for absolute, frictionless control over your wealth.",
     },
     {
       name: "247FirstCare & EarnvaRx",
       short: "Health & Rx",
+      icon: "health",
       image: "/images/bg-health.webp",
       body: "Integrates 24/7 virtual primary care and deep pharmaceutical utility natively into your financial ecosystem to proactively protect your health — with savings on 93% of US prescriptions and over 26,000 commercially discounted medications at 65,000+ US pharmacies.",
     },
@@ -58,14 +62,14 @@ export const ecosystem = {
 
 export const dataLayers = {
   title: "Connect offline-in-life data with {AI insights} to grow your business.",
-  body: "Six predictive data layers, stacked into one view of the consumer.",
+  body: "The Infortum ecosystem connects and accelerates every layer of consumer behavior, using predictive data layers to deliver unique insights and empower smarter business decisions.",
   layers: [
-    { name: "Total Share of Wallet", short: "TSW", body: "Capturing 360° of consumer spending across all legacy and digital payment rails." },
-    { name: "Predictive Consumer Intent", short: "Intent", body: "Analyzes closed-loop engagement to identify purchase intent, automating proactive revenue generation." },
-    { name: "Real-Time Mobility Data", short: "Mobility", body: "Tracks physical movement across global destinations to deliver hyper-contextual engagement triggers." },
-    { name: "Predictive Health Intelligence", short: "Health", body: "Extracts diagnostic trends from virtual primary care to accelerate proactive clinical strategies." },
-    { name: "Rx Fulfillment Data", short: "Rx", body: "Real-time prescription adherence and SKU-level medication fulfillment via 65,000+ pharmacies." },
-    { name: "Global Asset Liquidity", short: "Assets", body: "Integrates legacy banking and digital assets to drive high-conviction, strategic institutional outcomes." },
+    { name: "Total Share of Wallet (TSW)", short: "TSW", icon: "fingerprint", body: "Capturing 360° of consumer spending across all legacy and digital payment rails." },
+    { name: "Predictive Consumer Intent", short: "Intent", icon: "brain", body: "Analyzes closed-loop engagement to identify purchase intent, automating proactive revenue generation." },
+    { name: "Real-Time Mobility Data", short: "Mobility", icon: "mapPin", body: "Tracks physical movement across global destinations to deliver hyper-contextual engagement triggers." },
+    { name: "Predictive Health Intelligence", short: "Health", icon: "heart", body: "Extracts diagnostic trends from virtual primary care to accelerate proactive clinical strategies." },
+    { name: "Rx Fulfillment Data", short: "Rx", icon: "pill", body: "Real-time prescription adherence and SKU-level medication fulfillment via 65,000+ pharmacies." },
+    { name: "Global Asset Liquidity", short: "Assets", icon: "globe", body: "Integrates legacy banking and digital assets to drive high-conviction, strategic institutional outcomes." },
   ],
 };
 

@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { SignalField } from "@/components/SignalField";
 import { EcosystemHub } from "@/components/EcosystemHub";
-import { LayerScroll } from "@/components/LayerScroll";
+import { EcosystemScroll } from "@/components/EcosystemScroll";
 import { CompanyStack } from "@/components/CompanyStack";
 import { DeviceReveal } from "@/components/DeviceReveal";
 import { GText } from "@/components/GText";
-import { closing, companies, ecosystem, hero } from "@/lib/content";
+import { closing, companies, dataLayers, hero } from "@/lib/content";
 
 function SectionHead({ title, body, id, center }: { title: string; body?: string; id?: string; center?: boolean }) {
   return (
@@ -54,24 +54,25 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Ecosystem hub */}
-      <section aria-labelledby="infortum" className="relative overflow-hidden py-28 sm:py-40">
+      {/* Ecosystem — pinned scroll through the four pillars */}
+      <section aria-labelledby="infortum" className="relative">
+        {/* Glow lives in its own clipped layer so the sticky scroll keeps working */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+          <div className="glow-violet absolute left-0 top-1/3 h-[50rem] w-[50rem] -translate-x-1/3 opacity-40" />
+        </div>
+        <span id="infortum" className="sr-only">Infortum ecosystem</span>
+        <EcosystemScroll />
+      </section>
+
+      {/* Data components — Infortum hub */}
+      <section aria-labelledby="data" className="relative overflow-hidden py-28 sm:py-40">
         <div aria-hidden="true" className="glow-cyan pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[60rem] w-[60rem] -translate-x-1/2 -translate-y-1/2 opacity-40" />
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <SectionHead id="infortum" title={ecosystem.title} body={ecosystem.body} center />
+          <SectionHead id="data" title={dataLayers.title} body={dataLayers.body} center />
           <div className="mt-16 sm:mt-20">
             <EcosystemHub />
           </div>
         </div>
-      </section>
-
-      {/* Data layers — pinned scroll */}
-      <section aria-label="Predictive data layers" className="relative">
-        {/* Glow lives in its own clipped layer so the sticky scroll above it keeps working */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-          <div className="glow-violet absolute left-0 top-1/3 h-[50rem] w-[50rem] -translate-x-1/3 opacity-40" />
-        </div>
-        <LayerScroll />
       </section>
 
       {/* Companies — stacked scroll-through */}
