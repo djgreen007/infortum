@@ -23,7 +23,7 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-5 sm:px-8">
-        <Link href="/" className="shrink-0" aria-label="Infortum home" onClick={() => setOpen(false)}>
+        <Link href="/" className="shrink-0 py-2" aria-label="Infortum home" onClick={() => setOpen(false)}>
           <Image
             src="/images/infortum-wordmark-white.png"
             alt="Infortum"
@@ -50,7 +50,7 @@ export function Header() {
 
         <button
           type="button"
-          className="flex h-10 w-10 items-center justify-center rounded-full ring-1 ring-white/15 md:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-full ring-1 ring-white/15 md:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}

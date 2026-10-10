@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
-import { GText, plain } from "@/components/GText";
+import { GText } from "@/components/GText";
 import { ParallaxBackdrop } from "@/components/ParallaxBackdrop";
 import { portfolio } from "@/lib/content";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Portfolio",
-  description: plain(portfolio.body),
-};
+  description: "Five companies, one ecosystem: the Earnva app and Smart Wallet, Earnva Savings & Rewards Network, EarnvaRx, 247FirstCare and AET Trust.",
+  path: "/portfolio",
+});
 
 type Co = (typeof portfolio.companies)[number];
 
@@ -41,7 +43,7 @@ export default function PortfolioPage() {
           <p className="mt-8 max-w-2xl text-pretty text-lg text-mist sm:text-xl">{portfolio.body}</p>
           <nav aria-label="Companies" className="mt-12 flex flex-wrap gap-2">
             {portfolio.companies.map((c) => (
-              <a key={c.id} href={`#${c.id}`} className="glass rounded-full px-4 py-2 text-sm text-paper/85 transition hover:bg-white/10">
+              <a key={c.id} href={`#${c.id}`} className="glass rounded-full px-4 py-2.5 text-sm text-paper/85 transition hover:bg-white/10">
                 {c.name}
               </a>
             ))}

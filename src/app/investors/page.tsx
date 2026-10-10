@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { AuroraBackdrop } from "@/components/AuroraBackdrop";
@@ -6,15 +7,16 @@ import { CountUp } from "@/components/CountUp";
 import { EarnerJourney } from "@/components/EarnerJourney";
 import { VideoBackdrop } from "@/components/VideoBackdrop";
 import { ContactForm } from "@/components/ContactForm";
-import { GText, plain } from "@/components/GText";
+import { GText } from "@/components/GText";
 import { Leadership } from "@/components/Leadership";
 import { ParallaxBackdrop } from "@/components/ParallaxBackdrop";
 import { investors as inv, portfolio } from "@/lib/content";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Investors",
-  description: plain(inv.hero.body),
-};
+  description: "Invest in the first HelpTech ecosystem. Infortum unifies FinTech, HealthTech and rewards around consented, real-world consumer data. Request the investor brief.",
+  path: "/investors",
+});
 
 const SCALE_GLOWS = [
   "radial-gradient(60% 80% at 100% 0%, rgba(0,255,255,0.16), transparent 70%)",
@@ -137,9 +139,9 @@ export default function InvestorsPage() {
             <H2 id="moat" text={inv.moat.title} />
             <p className="mt-6 max-w-xl text-pretty text-lg text-mist">{inv.moat.body}</p>
           </div>
-          <ul className="grid content-center gap-3 sm:grid-cols-2">
+          <ul className="grid grid-cols-2 content-center gap-2.5 sm:gap-3">
             {inv.moat.capabilities.map((c) => (
-              <li key={c} className="glass-strong flex items-center gap-3 rounded-2xl px-5 py-4 text-paper/90">
+              <li key={c} className="glass-strong flex items-center gap-2.5 rounded-2xl px-3.5 py-3.5 text-sm text-paper/90 sm:gap-3 sm:px-5 sm:py-4 sm:text-base">
                 <svg aria-hidden="true" viewBox="0 0 16 16" className="h-4 w-4 shrink-0 text-lime">
                   <path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>

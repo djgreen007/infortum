@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { ContactForm } from "@/components/ContactForm";
 import { SignalField } from "@/components/SignalField";
 import { GText } from "@/components/GText";
 import { contact } from "@/lib/content";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Contact us",
-  description: "Connect with Infortum to unlock innovation.",
-};
+  description: "Partner with Infortum. Talk to our team about partnerships, merchants, investment and media.",
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

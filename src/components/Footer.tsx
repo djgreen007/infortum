@@ -6,10 +6,10 @@ function Column({ title, links }: { title: string; links: { label: string; href:
   return (
     <div>
       <h2 className="text-sm text-haze">{title}</h2>
-      <ul className="mt-4 space-y-3">
+      <ul className="mt-3 space-y-0.5">
         {links.map((l) => (
           <li key={l.href}>
-            <Link href={l.href} className="text-sm text-mist transition-colors hover:text-paper">
+            <Link href={l.href} className="inline-block py-2 text-sm text-mist transition-colors hover:text-paper">
               {l.label}
             </Link>
           </li>
@@ -33,15 +33,15 @@ export function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-8 text-xs text-haze sm:px-8 md:flex-row md:items-center md:justify-between">
         <p>
           © {new Date().getFullYear()} {site.legalName} All rights reserved. Powered by{" "}
-          <a href={site.credit.href} className="text-mist hover:text-paper" target="_blank" rel="noopener">
+          <a href={site.credit.href} className="py-2 text-mist hover:text-paper" target="_blank" rel="noopener">
             {site.credit.label}
           </a>
           .
         </p>
-        <ul className="flex gap-6">
+        <ul className="flex flex-wrap gap-x-6">
           {footer.legal.map((l) => (
             <li key={l.href}>
-              <Link href={l.href} className="hover:text-paper">
+              <Link href={l.href} className="inline-block py-2.5 hover:text-paper">
                 {l.label}
               </Link>
             </li>

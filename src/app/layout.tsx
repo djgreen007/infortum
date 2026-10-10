@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -10,17 +10,59 @@ const inter = localFont({ src: "../fonts/inter-latin-wght-normal.woff2", variabl
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: { default: "Infortum — Intent-based insights", template: "%s | Infortum" },
+  title: { default: "Infortum | Transform offline behavior into actionable insights", template: "%s | Infortum" },
   description: site.description,
-  openGraph: {
-    title: "Infortum",
-    description: site.description,
-    url: site.url,
-    siteName: "Infortum",
-    images: ["/images/earnva-app.webp"],
-    type: "website",
-  },
+  applicationName: site.name,
+  keywords: [
+    "Infortum",
+    "HelpTech",
+    "Earnva",
+    "Earnva app",
+    "smart wallet",
+    "savings and rewards",
+    "EarnvaRx",
+    "prescription savings",
+    "247FirstCare",
+    "telehealth",
+    "AET Trust",
+    "consumer intent data",
+    "FinTech",
+    "HealthTech",
+  ],
+  authors: [{ name: site.legalName }],
+  creator: site.legalName,
+  publisher: site.legalName,
+  alternates: { canonical: "/" },
+  openGraph: { type: "website", siteName: site.name, locale: "en_US", url: "/", title: "Infortum", description: site.description },
   twitter: { card: "summary_large_image" },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
+  formatDetection: { telephone: false, address: false, email: false },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#000000",
+  colorScheme: "dark",
+  width: "device-width",
+  initialScale: 1,
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${site.url}/#organization`,
+      name: site.legalName,
+      alternateName: site.name,
+      url: site.url,
+      logo: `${site.url}/images/infortum-mark-color.webp`,
+      description: site.description,
+      email: "support@infortum.io",
+      founder: { "@type": "Person", name: "Eddy Pham", jobTitle: "Founder & CEO" },
+      subOrganization: ["Earnva", "EarnvaRx", "247FirstCare", "AET Trust"].map((name) => ({ "@type": "Organization", name })),
+    },
+    { "@type": "WebSite", "@id": `${site.url}/#website`, url: site.url, name: site.name, publisher: { "@id": `${site.url}/#organization` } },
+  ],
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -33,6 +75,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         >
           Skip to content
         </a>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <Header />
         <main id="main">{children}</main>
         <Footer />

@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { SignalField } from "@/components/SignalField";
 import { EcosystemBento } from "@/components/EcosystemBento";
@@ -7,6 +9,12 @@ import { CompanyStack } from "@/components/CompanyStack";
 import { DeviceReveal } from "@/components/DeviceReveal";
 import { GText } from "@/components/GText";
 import { closing, companies, dataLayers, hero } from "@/lib/content";
+
+export const metadata: Metadata = pageMeta({
+  description:
+    "Infortum Inc. is building the first HelpTech ecosystem, connecting offline, real-world data with AI across the Earnva app, Earnva Savings & Rewards, EarnvaRx, 247FirstCare and AET Trust.",
+  path: "/",
+});
 
 function SectionHead({ title, body, id, center }: { title: string; body?: string; id?: string; center?: boolean }) {
   return (

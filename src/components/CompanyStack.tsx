@@ -11,11 +11,11 @@ function Card({ c, index }: { c: Company; index: number }) {
   return (
     <article
       id={c.id}
-      className="relative grid min-h-[min(44rem,80svh)] overflow-hidden rounded-[2rem] bg-[#0b0c12] ring-1 ring-white/10 lg:grid-cols-[1.1fr_1fr]"
+      className="relative grid overflow-hidden lg:min-h-[min(44rem,80svh)] rounded-[2rem] bg-[#0b0c12] ring-1 ring-white/10 lg:grid-cols-[1.1fr_1fr]"
       style={{ boxShadow: "0 -30px 80px -20px rgba(0,0,0,0.9)" }}
     >
       {/* Brand logo */}
-      <div className="relative order-first flex min-h-[14rem] items-center justify-center lg:order-last lg:min-h-0">
+      <div className="relative order-first flex min-h-[11rem] items-center sm:min-h-[14rem] justify-center lg:order-last lg:min-h-0">
         <div className={`absolute inset-0 ${index % 2 ? "glow-violet" : "glow-cyan"} opacity-90`} />
         {c.logoBg === "light" ? (
           <div className="relative aspect-square w-[44%] max-w-[17rem] overflow-hidden rounded-full bg-paper shadow-[0_0_120px_rgba(0,185,255,0.35)]">
@@ -48,7 +48,17 @@ function Card({ c, index }: { c: Company; index: number }) {
 
 export function CompanyStack() {
   const items = companies.items;
-  const reduced = usePrefersReducedMotion();
+  const reducedMotion = usePrefersReducedMotion();
+  // Stacking cards need room; phones and tablets get a simple list
+  const [wide, setWide] = useState(true);
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const on = () => setWide(mq.matches);
+    on();
+    mq.addEventListener("change", on);
+    return () => mq.removeEventListener("change", on);
+  }, []);
+  const reduced = reducedMotion || !wide;
   const wrappers = useRef<(HTMLDivElement | null)[]>([]);
   const [scales, setScales] = useState<number[]>(() => items.map(() => 1));
   const [active, setActive] = useState(0);
@@ -88,7 +98,7 @@ export function CompanyStack() {
 
   if (reduced) {
     return (
-      <div className="space-y-6">
+      <div className="space-y-5">
         {items.map((c, i) => (
           <Card key={c.id} c={c} index={i} />
         ))}

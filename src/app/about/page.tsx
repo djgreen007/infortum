@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { ContactForm } from "@/components/ContactForm";
 import { GText } from "@/components/GText";
 import { Leadership } from "@/components/Leadership";
 import { ParallaxBackdrop } from "@/components/ParallaxBackdrop";
-import { about, closing, companies, contact } from "@/lib/content";
+import { about, closing, contact, portfolio } from "@/lib/content";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "About us",
-  description: "Infortum Inc. is a Nevada-based technology holding company engineering the future of digital infrastructure.",
-};
+  description: "Infortum Inc. is a Nevada-based technology holding company led by founder and CEO Eddy Pham, building secure, AI-powered finance and health ecosystems.",
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (
@@ -102,22 +104,20 @@ export default function AboutPage() {
           <h2 id="portfolio" className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
             Our portfolio
           </h2>
-          <ul className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
-            {companies.items
-              .filter((c, i, all) => all.findIndex((x) => x.logo === c.logo) === i)
-              .map((c) => (
-                <li key={c.id}>
-                  <Link
-                    href="/portfolio"
-                    className="glass flex aspect-[4/3] flex-col items-center justify-center gap-3 rounded-[1.5rem] p-6 transition hover:bg-white/10"
-                  >
-                    <span className={`relative h-14 w-24 ${c.logoBg === "light" ? "overflow-hidden rounded-xl bg-paper" : ""}`}>
-                      <Image src={c.logo} alt="" fill sizes="96px" className="object-contain" />
-                    </span>
-                    <span className="text-center font-display text-sm text-mist">{c.brand}</span>
-                  </Link>
-                </li>
-              ))}
+          <ul className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-5">
+            {portfolio.companies.map((c, i) => (
+              <li key={c.id} className={i === 0 ? "col-span-2 lg:col-span-1" : ""}>
+                <Link
+                  href={`/portfolio#${c.id}`}
+                  className="glass-strong flex h-full min-h-[9.5rem] flex-col items-center justify-center gap-3 rounded-[1.5rem] p-5 transition hover:bg-white/10"
+                >
+                  <span className={`relative h-14 ${c.logoBg === "light" ? "w-14 overflow-hidden rounded-full bg-paper" : "w-28"}`}>
+                    <Image src={c.logo} alt="" fill sizes="112px" className="object-contain" />
+                  </span>
+                  <span className="text-center font-display text-sm leading-tight text-mist">{c.name}</span>
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </section>
