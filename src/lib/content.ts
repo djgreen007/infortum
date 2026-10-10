@@ -179,7 +179,7 @@ export const about = {
   whoTitle: "Understanding the {Infortum ecosystem.}",
   who: [
     "Welcome to Infortum Inc., a Nevada-based technology holding company engineering the future of digital infrastructure. We consolidate complex financial and health data into seamless, user-centric ecosystems powered by advanced machine learning.",
-    "Our diverse portfolio of subsidiaries delivers unified solutions at a global scale. From real-time digital healthcare access via 247FirstCare and EarnvaRx, to the frictionless payment and custody architectures of UpswingPay and AET Trust, we engineer secure systems that drive measurable outcomes.",
+    "Our diverse portfolio of subsidiaries delivers unified solutions at a global scale. From real-time digital healthcare access via 247FirstCare and EarnvaRx, to the banking and custody architecture of AET Trust, we engineer secure systems that drive measurable outcomes.",
     "At the core of our consumer ecosystem is the Earnva™ Savings and Rewards Network (ESRN). Supported by the proprietary Earnva™ Card, we leverage localized intent data and AI to deliver hyper-personalized value to users while providing merchants with unparalleled predictive insights.",
     "Join us in architecting a seamlessly connected future where secure data and intelligent systems empower boundless human potential.",
   ],
@@ -212,15 +212,6 @@ export const about = {
           "His background spans FinTech, HealthTech, retail, direct-to-consumer and media, with deep expertise in consumer behavior, data-driven marketing and hardware and software integration.",
         ],
         quote: "I never wanted to create another discount app. I wanted to build an intelligent ecosystem that helps people save, earn and make better decisions.",
-      },
-      {
-        name: "Dominick Rinaldi",
-        role: "President & COO",
-        photo: null,
-        bio: [
-          "Dominick Rinaldi brings more than 20 years in incentives and rewards, designing customized reward programs for Fortune 500 companies including Citibank, Verizon Wireless, Humana and Allstate to drive acquisition, engagement and retention.",
-        ],
-        quote: null,
       },
       {
         name: "Ammon Green",
@@ -329,15 +320,6 @@ export const portfolio = {
       logoBg: "light",
       summary: "American Estate & Trust, a Nevada-regulated custodian providing the banking and custody backbone for the ecosystem.",
       facts: ["API-first custody infrastructure", "Alternative assets for the IRA market", "Global banking and digital wallet services", "Multicurrency support and global spend"],
-    },
-    {
-      id: "upswing",
-      name: "UpswingPay",
-      category: "Payments · Merchant services",
-      logo: null,
-      logoBg: "dark",
-      summary: "Merchant processing for the Infortum ecosystem, connecting partner merchants to payments, rewards and insights.",
-      facts: ["Merchant payment processing", "Connects merchants to the rewards network", "Supports the closed-loop economy"],
     },
   ],
 };

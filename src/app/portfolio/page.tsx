@@ -86,7 +86,7 @@ export default function PortfolioPage() {
         </div>
         <div className="mx-auto max-w-4xl px-5 text-center sm:px-8">
           <p className="text-balance font-display text-3xl font-semibold leading-tight tracking-tight sm:text-5xl">
-            <GText text="Six companies. {One investment thesis.}" />
+            <GText text="Five companies. {One investment thesis.}" />
           </p>
           <div className="mt-12 flex flex-wrap justify-center gap-4">
             <Link href="/investors" className="rounded-full bg-paper px-8 py-4 font-medium text-ink transition-colors hover:bg-signal">

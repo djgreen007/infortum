@@ -186,7 +186,7 @@ export default function InvestorsPage() {
             <h2 id="companies" className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">The portfolio</h2>
             <Link href="/portfolio" className="text-sm text-mist underline underline-offset-4 hover:text-paper">See every company</Link>
           </div>
-          <ul className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
+          <ul className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
             {portfolio.companies.map((c) => (
               <li key={c.id}>
                 <Link href={`/portfolio#${c.id}`} className="glass flex h-full flex-col justify-between gap-6 rounded-[1.5rem] p-5 transition hover:bg-white/10">

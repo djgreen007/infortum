@@ -35,7 +35,7 @@ export function Leadership({ heading = about.leadership.title }: { heading?: str
           )}
         </div>
       </div>
-      <ul className="mt-20 grid gap-5 md:grid-cols-3">
+      <ul className="mt-20 grid gap-5 md:grid-cols-2">
         {team.map((p) => (
           <li key={p.name} className="glass flex flex-col rounded-[1.75rem] p-8">
             <span
