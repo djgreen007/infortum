@@ -3,7 +3,7 @@
 export const site = {
   name: "Infortum",
   legalName: "Infortum Inc.",
-  url: "https://infortum.io",
+  url: "https://www.infortum.io",
   tagline: "The platform for intent-based insights to drive your business.",
   description:
     "Infortum connects offline-in-life data to predict consumer intent, drive measurable growth, and power business outcomes.",
