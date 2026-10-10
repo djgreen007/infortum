@@ -56,7 +56,7 @@ export default function Home() {
       </section>
 
       {/* Ecosystem — bento */}
-      <section aria-labelledby="infortum" className="relative py-28 sm:py-40">
+      <section aria-labelledby="infortum" className="relative">
         <EcosystemBento />
       </section>
 
