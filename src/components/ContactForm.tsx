@@ -11,7 +11,7 @@ const fields = [
   { name: "phone", label: "Phone", type: "tel", autoComplete: "tel", required: false },
 ] as const;
 
-export function ContactForm({ source }: { source: "contact" | "about" }) {
+export function ContactForm({ source }: { source: "contact" | "about" | "investor" }) {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
 
@@ -67,6 +67,24 @@ export function ContactForm({ source }: { source: "contact" | "about" }) {
           />
         </label>
       ))}
+      {source === "investor" && (
+        <label className="flex flex-col gap-2 sm:col-span-2">
+          <span className="text-sm text-mist">I am a</span>
+          <select
+            name="investorType"
+            required
+            defaultValue=""
+            className="border-b border-line bg-transparent py-2.5 text-lg text-paper outline-none transition-colors focus:border-signal focus-visible:outline-none [&>option]:bg-ink"
+          >
+            <option value="" disabled>Select one</option>
+            <option>Venture capital or fund</option>
+            <option>Family office</option>
+            <option>Accredited individual investor</option>
+            <option>Strategic or corporate partner</option>
+            <option>Other</option>
+          </select>
+        </label>
+      )}
       <label className="flex flex-col gap-2 sm:col-span-2">
         <span className="text-sm text-mist">Message</span>
         <textarea
@@ -85,7 +103,7 @@ export function ContactForm({ source }: { source: "contact" | "about" }) {
           disabled={status === "sending"}
           className="rounded-full bg-paper px-7 py-3.5 font-medium text-ink transition-colors hover:bg-signal disabled:opacity-60"
         >
-          {status === "sending" ? "Sending…" : "Send message"}
+          {status === "sending" ? "Sending…" : source === "investor" ? "Request the brief" : "Send message"}
         </button>
         {status === "error" && (
           <p role="alert" className="text-sm text-[#ff6b6b]">

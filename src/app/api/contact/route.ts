@@ -11,7 +11,8 @@ const schema = z.object({
   email: z.string().trim().email("Enter a valid email address.").max(200),
   phone: z.string().trim().max(50).optional().default(""),
   message: z.string().trim().min(1, "Add a message.").max(5000),
-  source: z.enum(["contact", "about"]).default("contact"),
+  source: z.enum(["contact", "about", "investor"]).default("contact"),
+  investorType: z.string().trim().max(100).optional().default(""),
   website: z.string().optional(), // honeypot
 });
 
@@ -35,7 +36,8 @@ export async function POST(req: Request) {
       { status: 400 },
     );
   }
-  const { website, ...data } = parsed.data;
+  const { website, investorType, ...data } = parsed.data;
+  if (investorType) data.message = `Investor type: ${investorType}\n\n${data.message}`;
   if (website) return NextResponse.json({ ok: true }); // bot — pretend success
 
   let stored = false;
@@ -81,7 +83,7 @@ export async function POST(req: Request) {
           .split(",")
           .map((s) => s.trim()),
         replyTo: data.email,
-        subject: `New inquiry from ${data.name}${data.company ? ` (${data.company})` : ""}`,
+        subject: `${data.source === "investor" ? "Investor inquiry" : "New inquiry"} from ${data.name}${data.company ? ` (${data.company})` : ""}`,
         html: `<table cellpadding="6">${rows
           .map(([k, v]) => `<tr><td><b>${k}</b></td><td>${escape(v)}</td></tr>`)
           .join(

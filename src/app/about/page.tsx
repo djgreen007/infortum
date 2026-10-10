@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ContactForm } from "@/components/ContactForm";
 import { GText } from "@/components/GText";
+import { Leadership } from "@/components/Leadership";
 import { about, closing, companies, contact } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -11,7 +12,6 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  const eddy = about.leadership.people[0];
   return (
     <>
       {/* Hero */}
@@ -53,31 +53,7 @@ export default function AboutPage() {
       {/* Leadership */}
       <section aria-labelledby="leadership" className="relative overflow-hidden py-24 sm:py-36">
         <div aria-hidden="true" className="glow-cyan pointer-events-none absolute left-1/4 top-1/2 -z-10 h-[44rem] w-[44rem] -translate-y-1/2 opacity-50" />
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <h2 id="leadership" className="font-display text-4xl font-semibold tracking-tight sm:text-5xl">
-            {about.leadership.title}
-          </h2>
-          <div className="mt-14 grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
-            <div className="relative mx-auto aspect-square w-full max-w-md overflow-hidden rounded-[2rem] ring-1 ring-white/10 lg:mx-0">
-              <Image src={eddy.photo} alt={`${eddy.name}, ${eddy.role}`} fill sizes="(min-width:1024px) 28rem, 90vw" className="object-cover" />
-            </div>
-            <div>
-              <p className="font-display text-4xl font-semibold tracking-tight sm:text-5xl">{eddy.name}</p>
-              <p className="mt-3 font-display text-xl">
-                <span className="text-signal-gradient">{eddy.role}</span>
-                <span className="text-mist">, Infortum Inc.</span>
-              </p>
-              <div className="mt-8 max-w-xl space-y-4 text-pretty text-lg leading-relaxed text-mist">
-                {eddy.bio.map((b) => (
-                  <p key={b.slice(0, 20)}>{b}</p>
-                ))}
-              </div>
-              <blockquote className="mt-10 max-w-xl">
-                <p className="text-balance font-display text-2xl leading-snug text-paper">“{eddy.quote}”</p>
-              </blockquote>
-            </div>
-          </div>
-        </div>
+        <Leadership />
       </section>
 
       {/* Vision & mission */}
@@ -130,7 +106,7 @@ export default function AboutPage() {
               .map((c) => (
                 <li key={c.id}>
                   <Link
-                    href={`/#${c.id}`}
+                    href="/portfolio"
                     className="glass flex aspect-[4/3] flex-col items-center justify-center gap-3 rounded-[1.5rem] p-6 transition hover:bg-white/10"
                   >
                     <span className={`relative h-14 w-24 ${c.logoBg === "light" ? "overflow-hidden rounded-xl bg-paper" : ""}`}>
