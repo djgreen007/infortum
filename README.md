@@ -18,7 +18,7 @@ Old WordPress URLs (`/about-us/`, `/contact-us/`) redirect to the new ones.
 
 ## Contact form
 
-`POST /api/contact` stores each submission in Supabase (`contact_submissions`) and emails it via Resend.
+`POST /api/contact` stores each submission in Supabase (`contact_submissions`) and emails it through Google Workspace (SMTP).
 Either one is enough for the form to succeed; set both for production.
 
 1. Supabase → SQL Editor → run `supabase/migrations/0001_contact_submissions.sql`
@@ -28,9 +28,9 @@ Either one is enough for the form to succeed; set both for production.
 |---|---|
 | `SUPABASE_URL` | Supabase → Project Settings → API → Project URL |
 | `SUPABASE_SERVICE_ROLE_KEY` | Supabase → Project Settings → API → `service_role` secret |
-| `RESEND_API_KEY` | resend.com → API Keys |
-| `CONTACT_TO_EMAIL` | `eddy@infortum.io` |
-| `CONTACT_FROM_EMAIL` | `Infortum Website <website@infortum.io>` (domain must be verified in Resend) |
+| `SMTP_USER` | The infortum.io mailbox that sends, e.g. `eddy@infortum.io` |
+| `SMTP_PASS` | Google app password for that mailbox (myaccount.google.com/apppasswords; needs 2-Step Verification) |
+| `CONTACT_TO_EMAIL` | `eddy@infortum.io` (comma-separate for more) |
 
 ## Editing content
 
