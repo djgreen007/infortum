@@ -58,14 +58,4 @@ If you have any questions about these Terms of Use, please contact us at:
 
 Email: support@infortum.io
 
-Address:
-
-Infortum Inc.,
-
-2620 South Maryland PKWY Ste 14 888
-
-Las Vegas, NV 89109
-
-USA
-
 By using our website, you acknowledge that you have read, understood, and agreed to be bound by these Terms of Use.

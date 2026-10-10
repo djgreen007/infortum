@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
 import { SignalField } from "@/components/SignalField";
 import { GText } from "@/components/GText";
-import { contact, site } from "@/lib/content";
+import { contact } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Contact us",
@@ -22,10 +22,6 @@ export default function ContactPage() {
             <GText text={contact.title} />
           </h1>
           <p className="mt-6 max-w-md text-pretty text-lg text-mist">{contact.body}</p>
-          <address className="mt-12 space-y-1 text-sm not-italic text-haze">
-            <p>{site.legalName}</p>
-            <p>{site.address}</p>
-          </address>
         </div>
         <div className="glass rounded-[2rem] bg-ink/60 p-6 sm:p-10">
           <ContactForm source="contact" />

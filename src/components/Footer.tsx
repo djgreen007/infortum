@@ -26,7 +26,6 @@ export function Footer() {
         <div className="max-w-sm">
           <Image src="/images/infortum-wordmark-white.png" alt="Infortum" width={1600} height={451} className="h-8 w-auto" />
           <p className="mt-6 text-pretty text-mist">{site.tagline}</p>
-          <p className="mt-6 text-sm text-haze">{site.address}</p>
         </div>
         <Column title="Services" links={footer.services} />
         <Column title="Company" links={footer.company} />

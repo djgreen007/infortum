@@ -8,7 +8,6 @@ export const site = {
   tagline: "The platform for intent-based insights to drive your business.",
   description:
     "Infortum connects offline-in-life data to predict consumer intent, drive measurable growth, and power business outcomes.",
-  address: "2620 South Maryland Pkwy, Ste 14 #888, Las Vegas, NV 89109",
   credit: { label: "ICM Creative", href: "https://islandcitymediagroup.com" },
 };
 

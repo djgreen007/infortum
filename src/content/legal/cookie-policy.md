@@ -54,8 +54,4 @@ If you have any questions or concerns about our use of cookies or this Cookie Po
 
 Email: cookies@infortum.io
 
-Address:
-
-Infortum Inc., 2620 South Maryland PKWY Ste 14 888 Las Vegas, NV 89109 USA
-
 By using our website, you acknowledge that you have read, understood, and agreed to this Cookie Policy.
