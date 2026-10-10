@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { ContactForm } from "@/components/ContactForm";
 import { GText, plain } from "@/components/GText";
 import { Leadership } from "@/components/Leadership";
+import { ParallaxBackdrop } from "@/components/ParallaxBackdrop";
 import { investors as inv, portfolio } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -61,10 +61,7 @@ export default function InvestorsPage() {
 
       {/* Market */}
       <section aria-labelledby="market" className="relative isolate py-24 sm:py-36">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-          <Image src="/images/bg-glitter.webp" alt="" fill sizes="100vw" className="object-cover opacity-30" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,transparent_20%,#000_80%)]" />
-        </div>
+        <ParallaxBackdrop tone="cyan" opacity={0.35} />
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <H2 id="market" text={inv.market.title} />
           <ul className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -205,7 +202,8 @@ export default function InvestorsPage() {
       </section>
 
       {/* Investor brief form */}
-      <section id="brief" aria-labelledby="brief-title" className="scroll-mt-24 pb-20 pt-12">
+      <section id="brief" aria-labelledby="brief-title" className="relative isolate scroll-mt-24 py-24 sm:py-32">
+        <ParallaxBackdrop tone="violet" opacity={0.3} />
         <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           <div>
             <h2 id="brief-title" className="text-balance font-display text-4xl font-semibold tracking-tight sm:text-5xl">
@@ -213,7 +211,7 @@ export default function InvestorsPage() {
             </h2>
             <p className="mt-6 max-w-sm text-pretty text-lg text-mist">{inv.cta.body}</p>
           </div>
-          <div className="glass rounded-[2rem] p-6 sm:p-10">
+          <div className="glass-strong rounded-[2rem] p-6 sm:p-10">
             <ContactForm source="investor" />
           </div>
         </div>

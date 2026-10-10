@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { GText, plain } from "@/components/GText";
+import { ParallaxBackdrop } from "@/components/ParallaxBackdrop";
 import { portfolio } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -80,10 +81,8 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden py-28 sm:py-36">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-          <div className="glow-violet absolute left-1/2 top-1/2 h-[40rem] w-[64rem] -translate-x-1/2 -translate-y-1/2 opacity-60" />
-        </div>
+      <section className="relative isolate overflow-hidden py-32 sm:py-44">
+        <ParallaxBackdrop tone="violet" opacity={0.4} />
         <div className="mx-auto max-w-4xl px-5 text-center sm:px-8">
           <p className="text-balance font-display text-3xl font-semibold leading-tight tracking-tight sm:text-5xl">
             <GText text="Five companies. {One investment thesis.}" />

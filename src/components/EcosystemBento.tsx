@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ParallaxBackdrop } from "./ParallaxBackdrop";
 import { ecosystem } from "@/lib/content";
 import { GText } from "./GText";
 
@@ -19,22 +19,7 @@ const GLOWS = [
 export function EcosystemBento() {
   return (
     <div className="relative isolate py-28 sm:py-40">
-      {/* Background: turquoise bokeh from the original site, faded into black so the glass has something to frost */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-10 overflow-hidden"
-      >
-        <Image
-          src="/images/bg-glitter.webp"
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover opacity-45"
-        />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_60%,transparent_20%,#000_80%)]" />
-        <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-black to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black to-transparent" />
-      </div>
+      <ParallaxBackdrop tone="cyan" opacity={0.45} />
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="max-w-3xl">
           <h2

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ContactForm } from "@/components/ContactForm";
 import { GText } from "@/components/GText";
 import { Leadership } from "@/components/Leadership";
+import { ParallaxBackdrop } from "@/components/ParallaxBackdrop";
 import { about, closing, companies, contact } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -75,7 +76,8 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section aria-labelledby="values" className="py-20 sm:py-28">
+      <section aria-labelledby="values" className="relative isolate py-28 sm:py-40">
+        <ParallaxBackdrop tone="violet" opacity={0.35} />
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <h2 id="values" className="max-w-3xl text-balance font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl">
             <GText text={about.valueTitle} />
@@ -83,7 +85,7 @@ export default function AboutPage() {
           <p className="mt-6 max-w-xl text-pretty text-lg text-mist">{about.valueBody}</p>
           <ul className="mt-14 grid gap-5 md:grid-cols-3">
             {about.values.map((v) => (
-              <li key={v.name} className="glass rounded-[1.75rem] p-8 sm:p-10">
+              <li key={v.name} className="glass-strong rounded-[1.75rem] p-8 sm:p-10">
                 <p className="font-display text-3xl font-semibold">
                   <span className="text-signal-gradient">{v.name}</span>
                 </p>
